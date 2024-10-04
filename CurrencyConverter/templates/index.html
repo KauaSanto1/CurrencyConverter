@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversor de Moedas</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>Conversor de Moedas</h1>
+    <div class="coin-container"> <!-- Container para as moedas -->
+        <div class="coin left"></div> <!-- Moeda à esquerda -->
+        <div class="coin right"></div> <!-- Moeda à direita -->
+    </div>
+    <form method="POST">
+        <label for="valor">Valor:</label>
+        <input type="text" id="valor" name="valor" required>
+        
+        <label for="moeda_origem">Moeda de Origem:</label>
+        <select id="moeda_origem" name="moeda_origem" required>
+            <option value="BRL">Real Brasileiro (BRL)</option>
+            <option value="USD">Dólar Americano (USD)</option>
+            <option value="EUR">Euro (EUR)</option>
+            <option value="GBP">Libra Esterlina (GBP)</option>
+            <option value="JPY">Yen Japonês (JPY)</option>
+            <option value="CAD">Dólar Canadense (CAD)</option>
+            <option value="AUD">Dólar Australiano (AUD)</option>
+            <option value="HKD">Dólar de Hong Kong (HKD)</option>
+            <option value="CHF">Franco Suíço (CHF)</option>
+            <option value="SGD">Dólar de Cingapura (SGD)</option>
+            <option value="SEK">Coroa Sueca (SEK)</option>
+            <option value="NOK">Coroa Norueguesa (NOK)</option>
+            <option value="NZD">Dólar Neozelandês (NZD)</option>
+            <option value="INR">Rúpia Indiana (INR)</option>
+            <option value="PKR">Rupia Paquistanesa (PKR)</option>
+            <option value="ZAR">Rand Africano (ZAR)</option>
+            <option value="MXN">Peso Mexicano (MXN)</option>
+            <option value="RUB">Rublo Russo (RUB)</option>
+            <option value="TRY">Lira Turca (TRY)</option>
+            <option value="ARS">Peso Argentino (ARS)</option>
+            <option value="THB">Baht Tailandês (THB)</option>
+            <option value="KWD">Dinar Kuwaitiano (KWD)</option>
+        </select>
+        
+        <label for="moeda_destino">Moeda de Destino:</label>
+        <select id="moeda_destino" name="moeda_destino" required>
+            <option value="BRL">Real Brasileiro (BRL)</option>
+            <option value="USD">Dólar Americano (USD)</option>
+            <option value="EUR">Euro (EUR)</option>
+            <option value="GBP">Libra Esterlina (GBP)</option>
+            <option value="JPY">Yen Japonês (JPY)</option>
+            <option value="CAD">Dólar Canadense (CAD)</option>
+            <option value="AUD">Dólar Australiano (AUD)</option>
+            <option value="HKD">Dólar de Hong Kong (HKD)</option>
+            <option value="CHF">Franco Suíço (CHF)</option>
+            <option value="SGD">Dólar de Cingapura (SGD)</option>
+            <option value="SEK">Coroa Sueca (SEK)</option>
+            <option value="NOK">Coroa Norueguesa (NOK)</option>
+            <option value="NZD">Dólar Neozelandês (NZD)</option>
+            <option value="INR">Rúpia Indiana (INR)</option>
+            <option value="PKR">Rupia Paquistanesa (PKR)</option>
+            <option value="ZAR">Rand Africano (ZAR)</option>
+            <option value="MXN">Peso Mexicano (MXN)</option>
+            <option value="RUB">Rublo Russo (RUB)</option>
+            <option value="TRY">Lira Turca (TRY)</option>
+            <option value="ARS">Peso Argentino (ARS)</option>
+            <option value="THB">Baht Tailandês (THB)</option>
+            <option value="KWD">Dinar Kuwaitiano (KWD)</option>
+        </select>
+        <button type="submit">Converter</button>
+    </form>
+    
+    {% if resultado is not none %}
+        <h2>Resultado: {{ "%.2f"|format(resultado) }}</h2>
+    {% endif %}
+
+    <h2>Tipos de Moedas</h2>
+    <table>
+        <tr>
+            <th>Moeda</th>
+            <th>Código</th>
+        </tr>
+        <tr>
+            <td>Real Brasileiro</td>
+            <td>BRL</td>
+        </tr>
+        <tr>
+            <td>Dólar Americano</td>
+            <td>USD</td>
+        </tr>
+        <tr>
+            <td>Euro</td>
+            <td>EUR</td>
+        </tr>
+        <tr>
+            <td>Libra Esterlina</td>
+            <td>GBP</td>
+        </tr>
+        <tr>
+            <td>Yen Japonês</td>
+            <td>JPY</td>
+        </tr>
+        <tr>
+            <td>Dólar Canadense</td>
+            <td>CAD</td>
+        </tr>
+        <tr>
+            <td>Dólar Australiano</td>
+            <td>AUD</td>
+        </tr>
+        <tr>
+            <td>Dólar de Hong Kong</td>
+            <td>HKD</td>
+        </tr>
+        <tr>
+            <td>Franco Suíço</td>
+            <td>CHF</td>
+        </tr>
+        <tr>
+            <td>Dólar de Cingapura</td>
+            <td>SGD</td>
+        </tr>
+        <tr>
+            <td>Coroa Sueca</td>
+            <td>SEK</td>
+        </tr>
+        <tr>
+            <td>Coroa Norueguesa</td>
+            <td>NOK</td>
+        </tr>
+        <tr>
+            <td>Dólar Neozelandês</td>
+            <td>NZD</td>
+        </tr>
+        <tr>
+            <td>Rúpia Indiana</td>
+            <td>INR</td>
+        </tr>
+        <tr>
+            <td>Rupia Paquistanesa</td>
+            <td>PKR</td>
+        </tr>
+        <tr>
+            <td>Rand Africano</td>
+            <td>ZAR</td>
+        </tr>
+        <tr>
+            <td>Peso Mexicano</td>
+            <td>MXN</td>
+        </tr>
+        <tr>
+            <td>Rublo Russo</td>
+            <td>RUB</td>
+        </tr>
+        <tr>
+            <td>Lira Turca</td>
+            <td>TRY</td>
+        </tr>
+        <tr>
+            <td>Peso Argentino</td>
+            <td>ARS</td>
+        </tr>
+        <tr>
+            <td>Baht Tailandês</td>
+            <td>THB</td>
+        </tr>
+        <tr>
+            <td>Dinar Kuwaitiano</td>
+            <td>KWD</td>
+        </tr>
+    </table>
+</body>
+</html>
